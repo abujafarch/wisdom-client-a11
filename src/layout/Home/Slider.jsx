@@ -40,27 +40,27 @@ const Slider = () => {
 
                 <SwiperSlide>
                     <div className='w-full h-full'>
-                        <img className='w-full h-full object-cover' src="https://i.ibb.co/mGZmwnz/dubai.jpg" />
+                        <img className='w-full h-full object-cover' src="https://i.ibb.co/k3R9xYY/jilbert-ebrahimi-HAw-A1-N2gjo8-unsplash.jpg" />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='w-full h-full'>
-                        <img className='w-full h-full object-cover' src="https://i.ibb.co/YZjth5K/mangrove-forest-in-phang-nga-bay-4k-thailand-b-Wtoa2a-Um-Zqara-Wkp-JRob-Wllr-Wdma2-U.jpg" />
+                        <img className='w-full h-full object-cover' src="https://i.ibb.co/hHWYZCq/lilly-rum-iy-KVGRu79-G4-unsplash.jpg" />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='w-full h-full'>
-                        <img className='w-full h-full object-cover' src="https://i.ibb.co/nLkwCxy/malaysia-f.jpg" />
+                        <img className='w-full h-full object-cover' src="https://i.ibb.co/f2K9RBF/2020-03-01-87874-1583031914-large.jpg" />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='w-full h-full'>
-                        <img className='w-full h-full object-cover' src="https://i.ibb.co/CPkhyJJ/vietnam-f.jpg" />
+                        <img className='w-full h-full object-cover' src="https://i.ibb.co/HFNQkLW/photo-1504052434569-70ad5836ab65-q-80-w-2070-auto-format-fit-crop-ixlib-rb-4-0.jpg" />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='w-full h-full'>
-                        <img className='w-full h-full object-cover' src="https://i.ibb.co/z7dqvW8/combodia.jpg.jpg" />
+                        <img className='w-full h-full object-cover' src="https://i.ibb.co/1zFWX4p/Impact-Of-Reading-Books-On-Your-Mental-Health-990x500.jpg" />
                     </div>
                 </SwiperSlide>
 
