@@ -1,7 +1,7 @@
-const AddBooks = () => {
+const UpdateBooks = () => {
     return (
         <div className="max-w-[1200px] mx-auto mt-40">
-            <h1 className="text-center font-bold font-inter text-3xl md:text-4xl mb-3 md:mb-5">Add Book</h1>
+            <h1 className="text-center font-bold font-inter text-3xl md:text-4xl mb-3 md:mb-5">Update Book</h1>
             <form className="font-inter md:px-5 px-3 py-5 rounded-md bg-white">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div >
@@ -22,10 +22,6 @@ const AddBooks = () => {
                         </select>
                     </div>
                     <div >
-                        <p className="text-lg mb-1">Quantity</p>
-                        <input type="number" required name="location" className="text-lg w-full p-2 rounded-sm outline-none border" placeholder="Quantity" />
-                    </div>
-                    <div >
                         <p className="text-lg mb-1">Author Name</p>
                         <input type="text" required name="cost" className="text-lg w-full p-2 rounded-sm outline-none border" placeholder="Author Name" />
                     </div>
@@ -33,19 +29,11 @@ const AddBooks = () => {
                         <p className="text-lg mb-1">Rating</p>
                         <input type="number" required name="seasonality" className="text-lg w-full p-2 rounded-sm outline-none border" placeholder="Rating (1-5)" />
                     </div>
-                    <div >
-                        <p className="text-lg mb-1">Short Description</p>
-                        <textarea className="text-lg w-full p-2 rounded-sm outline-none border" name="description" rows={10}></textarea>
-                    </div>
-                    <div >
-                        <p className="text-lg mb-1">Some of content of this book</p>
-                        <textarea className="text-lg w-full p-2 rounded-sm outline-none border" name="content" rows={10}></textarea>
-                    </div>
                 </div>
-                <button className= "w-full p-2 text-center text-white text-lg font-semibold my-10 px-4 bg-[#36ad68]">Add Book</button>
+                <button className= "w-full p-2 text-center text-white text-lg font-semibold my-10 px-4 bg-[#36ad68]">Submit</button>
             </form>
         </div>
     );
 };
 
-export default AddBooks;
+export default UpdateBooks;

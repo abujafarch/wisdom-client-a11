@@ -4,6 +4,7 @@ import Home from "../layout/Home/Home";
 import Login from "../layout/Login/Login";
 import Register from "../layout/Register/Register";
 import AddBooks from "../layout/AddBooks/AddBooks";
+import UpdateBooks from "../layout/UpdateBooks/UpdateBooks";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
             {
                 path: '/add-books',
                 element: <AddBooks></AddBooks>
+            },
+            {
+                path: '/update-books',
+                element: <UpdateBooks></UpdateBooks>
             }
         ]
     },
