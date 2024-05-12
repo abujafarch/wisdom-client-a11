@@ -4,8 +4,9 @@ import AllBook from "./AllBook";
 const AllBooks = () => {
     const [view, setView] = useState('card-view')
     const handleView = (e) => {
-        console.log(e.target.value);
+        setView(e.target.value);
     }
+    console.log(view);
     return (
         <div className="max-w-[1480px] mx-auto mt-40">
             <h2 className="text-center font-bold font-inter text-3xl md:text-4xl mb-3 md:mb-5">All Books</h2>
@@ -15,11 +16,13 @@ const AllBooks = () => {
                     <option value="table-view">Table View</option>
                 </select>
             </div>
-            <div className="grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 font-inter mt-5 md:px-5 px-3 py-5">
-                <AllBook></AllBook>
-                <AllBook></AllBook>
-                <AllBook></AllBook>
-                <AllBook></AllBook>
+
+            <div className={`${view === 'card-view' ? 'grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7 lg:gap-10' : 'flex flex-col'} font-inter mt-5 md:px-5 px-3 py-5`}>
+
+                <AllBook view={view}></AllBook>
+                <AllBook view={view}></AllBook>
+                <AllBook view={view}></AllBook>
+                <AllBook view={view}></AllBook>
             </div>
         </div>
     );
