@@ -1,3 +1,4 @@
+import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
 const TableView = () => {
@@ -19,7 +20,10 @@ const TableView = () => {
                                         <div className="font-bold">Dune by Frank Herbert</div>
                                         <div className="text-sm opacity-50">by Frank Herbert</div>
                                         <div>
-                                            rating here
+                                            <Rating
+                                                initialRating={3.7}
+                                                readonly
+                                            />
                                         </div>
                                     </div>
                                 </div>

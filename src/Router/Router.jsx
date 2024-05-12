@@ -7,11 +7,14 @@ import AddBooks from "../layout/AddBooks/AddBooks";
 import UpdateBooks from "../layout/UpdateBooks/UpdateBooks";
 import AllBooks from "../layout/AllBooks/AllBooks";
 import BookCategories from "../layout/BookCategory/BookCategories";
+import NotFound from "../layout/NotFound/NotFound";
+import BorrowedBooks from "../layout/BorrowedBooks/BorrowedBooks";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement:<NotFound></NotFound>,
         children: [
             {
                 path: '/',
@@ -40,6 +43,10 @@ export const router = createBrowserRouter([
             {
                 path: '/category-books',
                 element: <BookCategories></BookCategories>
+            },
+            {
+                path: '/borrowed-books',
+                element: <BorrowedBooks></BorrowedBooks>
             }
         ]
     },

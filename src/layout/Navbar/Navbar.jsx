@@ -16,7 +16,7 @@ const Navbar = () => {
     // })
 
     return (
-        <div className={`fixed w-full transition-all duration-500 ease-in-out ${scrollY > 5 ? 'top-0 bg-gradient-to-r opacity-100 from-[#ebf6fe] to-[#a1d8fe]' : 'top-6'} left-1/2 -translate-x-1/2 z-30`}>
+        <div className={`fixed w-full transition-all duration-500 ease-in-out ${scrollY > 5 ? 'top-0 bg-gradient-to-r from-[#ebf6fe] to-[#a1d8fe] opacity-100' : 'top-6'} left-1/2 -translate-x-1/2 z-30`}>
 
             <div className={`flex ${scrollY > 5 ? 'top-0 bg-transparent' : 'bg-gradient-to-r from-[#ebf6fe] to-[#a1d8fe]'} rounded-[50px] mx-auto items-center gap-[150px] w-max justify-between px-20 py-5`}>
 

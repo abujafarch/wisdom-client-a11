@@ -1,7 +1,6 @@
-import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
-const CardView = () => {
+const BorrowedBook = () => {
     return (
         <div className={`w-full`}>
 
@@ -13,16 +12,12 @@ const CardView = () => {
 
                 <h3 className="text-xl mt-3 font-semibold">Dune by Frank Herbert</h3>
                 <p className="text-lg text-[#919191]">by Frank Herbert</p>
-                <div className="my-1">
-                    <Rating
-                        initialRating={3.7}
-                        readonly
-                    />
-                </div>
-                <Link to='/update-books'><button className="bg-[#36ad68] text-center w-full text-white font-inter font-medium p-2 rounded-sm">Update</button></Link>
+                <p className="text-lg text-[#919191]">Borrowed: 12/02/24</p>
+                <p className="text-lg text-[#919191]">Return: 17/02/24</p>
+                <Link to='/update-books'><button className="bg-[#36ad68] text-center w-full text-white font-inter font-medium p-2 rounded-sm">Return</button></Link>
             </div>
         </div>
     );
 };
 
-export default CardView;
+export default BorrowedBook;
