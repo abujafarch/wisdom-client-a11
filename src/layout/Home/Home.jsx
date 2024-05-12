@@ -1,4 +1,3 @@
-import Footer from "../Footer/Footer";
 import Banner from "./Banner/Banner";
 import BooksTopics from "./BooksTopics/BooksTopics";
 import Quotes from "./Quotes/Quotes";
@@ -11,7 +10,7 @@ const Home = () => {
             <BooksTopics></BooksTopics>
             <Quotes></Quotes>
             <TopReaders></TopReaders>
-            <Footer></Footer>
+            
         </div>
     );
 };

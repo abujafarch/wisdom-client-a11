@@ -26,7 +26,7 @@ const Navbar = () => {
                     <NavLink to='/all-books'>All Books</NavLink>
                     <NavLink to='/add-books'>Add Books</NavLink>
                     <NavLink to='borrowed-books'>Borrowed Books</NavLink>
-                    <Link className="bg-[#36ad68] text-white px-7 py-2 rounded-md">Login</Link>
+                    <Link to='/login' className="bg-[#36ad68] text-white px-7 py-2 rounded-md">Login</Link>
                     <Link className="bg-[#ce643b] text-white px-7 py-2 rounded-md">Logout</Link>
                 </div>
             </div>

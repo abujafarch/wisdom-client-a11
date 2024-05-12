@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
-import { useState } from "react";
+import Footer from "../Footer/Footer";
 
 const Root = () => {
 
@@ -12,6 +12,7 @@ const Root = () => {
             {/* <div className="h-[500px]">
 
             </div> */}
+            <Footer></Footer>
         </div>
     );
 };
