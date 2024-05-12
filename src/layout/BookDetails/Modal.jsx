@@ -1,13 +1,11 @@
 import { useState } from "react";
-// import DatePicker from "react-date-picker";
-// import DatePicker from "react-date-picker";
-// import 'react-date-picker/dist/DatePicker.css';
-// import 'react-calendar/dist/Calendar.css';
+import Calendar from "react-calendar";
+import 'react-calendar/dist/Calendar.css';
 
 const Modal = ({ setOpenModal }) => {
 
-    const [startDate, setStartDate] = useState(new Date());
-    // console.log(startDate);
+    const [startDate, setStartDate] = useState(new Date().toLocaleDateString("en-GB"));
+    console.log(startDate);
     return (
 
         <div className="">
@@ -20,10 +18,11 @@ const Modal = ({ setOpenModal }) => {
 
                 <input className="outline-none font-inter text-[#8b8b8b] mt-4 w-full p-2 border border-[#dbdbdb]" type="text" value={'Your Name'} disabled />
 
-                <input className="outline-none font-inter text-[#8b8b8b] mt-4 w-full p-2 border border-[#dbdbdb]" type="text" placeholder="return date" />
 
-                {/* <input type="date" defaultValue={startDate} /> */}
-                {/* <DatePicker onChange={setStartDate} value={startDate} /> */}
+                <p className="mt-3 mb-1 text-inter font-medium">Select Your Return Date</p>
+
+                <Calendar onChange={(value) => setStartDate(value.toLocaleDateString("en-GB"))} />
+
                 <div className="flex justify-center items-center">
                     <button className="bg-[#36ad68] py-2 px-5 mt-4 text-white font-medium font-inter" onClick={() => setOpenModal(false)}>Submit</button>
                 </div>
