@@ -3,17 +3,28 @@ import AllBook from "./AllBook";
 
 const AllBooks = () => {
     const [view, setView] = useState('card-view')
+    const [availableBooks, setAvailableBooks] = useState('all-books')
+
     const handleView = (e) => {
         setView(e.target.value);
     }
-    console.log(view);
+    const handleAvailableBooks = (e) =>{
+        setAvailableBooks(e.target.value)
+    }
+    // console.log(availableBooks);
+    // console.log(view);
+
     return (
         <div className="max-w-[1480px] mx-auto mt-40">
             <h2 className="text-center font-bold font-inter text-3xl md:text-4xl mb-3 md:mb-5">All Books</h2>
             <div className="md:mt-8 mt-2 lg:mt-12 md:px-5 px-3">
-                <select onChange={handleView} className="outline-none text-lg font-inter border-2 border-[#d3d3d3] p-2 rounded-md" name="">
+                <select onChange={handleView} className="outline-none mr-5 mb-2 text-lg font-inter border-2 border-[#d3d3d3] p-2 rounded-md" name="">
                     <option value="card-view">Card View</option>
                     <option value="table-view">Table View</option>
+                </select>
+                <select onChange={handleAvailableBooks} className="outline-none text-lg font-inter border-2 border-[#d3d3d3] p-2 rounded-md" name="">
+                    <option value="all-books">All Books</option>
+                    <option value="available-books">Available Books</option>
                 </select>
             </div>
 
