@@ -40,7 +40,8 @@ const Navbar = () => {
                 </div>
 
                 <div className={`flex lg:flex-row flex-col top-0 absolute lg:static lg:bg-none bg-gradient-to-r lg:p-0 py-5 pl-5 pr-10 from-[#ebf6fe] to-[#a1d8fe] lg:items-center font-inter font-semibold gap-5 transition-all ease-in-out duration-500 ${menuOpen ? 'left-0' : '-left-48'}`}>
-                    <button onClick={handleCloseMenu} className="flex justify-end absolute bg-[#00000042] p-2 right-0 top-0 text-xl"><RxCross1></RxCross1></button>
+                    <button onClick={handleCloseMenu} className="flex lg:hidden justify-end absolute bg-[#00000042] p-2 right-0 top-0 text-xl"><RxCross1></RxCross1></button>
+
                     <NavLink onClick={handleCloseMenu} to='/'>Home</NavLink>
                     <NavLink onClick={handleCloseMenu} to='/all-books'>All Books</NavLink>
                     <NavLink onClick={handleCloseMenu} to='/add-books'>Add Books</NavLink>
