@@ -2,7 +2,7 @@ const AddBooks = () => {
     return (
         <div className="max-w-[1200px] mx-auto mt-40">
             <h1 className="text-center font-bold font-inter text-3xl md:text-4xl mb-3 md:mb-5">Add Book</h1>
-            <form className="font-inter md:px-5 px-3 py-5 rounded-md bg-white">
+            <form className="font-inter md:px-5 px-3 py-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div >
                         <p className="text-lg mb-1">Book Name</p>

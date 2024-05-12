@@ -9,7 +9,7 @@ const TopReaders = () => {
                         <h3 className="text-lg font-inter font-medium text-white">Kwame Boateng</h3>
                         <p className="font-inter text-white">67 Books read</p>
                         <p className="font-inter text-white">Class: IX</p>
-                        <p className="font-inter  text-white">Roll: 12</p>
+                        <p className="font-inter  text-white">ID: 3412</p>
                     </div>
                 </div>
                 <div className="flex items-center w-full h-[200px]">
@@ -18,7 +18,7 @@ const TopReaders = () => {
                         <h3 className="text-lg font-inter font-medium text-white">Aisha Sharma</h3>
                         <p className="font-inter text-white">51 Books read</p>
                         <p className="font-inter text-white">Class: XII</p>
-                        <p className="font-inter text-white">Roll: 04</p>
+                        <p className="font-inter text-white">ID: 3204</p>
                     </div>
                 </div>
                 <div className="flex items-center w-full h-[200px]">
@@ -27,7 +27,7 @@ const TopReaders = () => {
                         <h3 className="text-lg font-inter font-medium text-white">Divya Desai</h3>
                         <p className="font-inter text-white">43 Books read</p>
                         <p className="font-inter text-white">Class: XI</p>
-                        <p className="font-inter text-white">Roll: 09</p>
+                        <p className="font-inter text-white">ID: 4309</p>
                     </div>
                 </div>
             </div>
