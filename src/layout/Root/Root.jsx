@@ -9,9 +9,9 @@ const Root = () => {
         <div>
             <Navbar></Navbar>
             <Outlet></Outlet>
-            <div className="h-[500px]">
+            {/* <div className="h-[500px]">
 
-            </div>
+            </div> */}
         </div>
     );
 };

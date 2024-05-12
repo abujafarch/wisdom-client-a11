@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -22,10 +22,10 @@ const Navbar = () => {
 
                 <Link to='/'><h3 className="font-wisdom text-4xl font-bold">Wisdom</h3></Link>
                 <div className="flex items-center font-inter font-semibold gap-5">
-                    <Link>Home</Link>
-                    <Link>All Books</Link>
-                    <Link>Add Books</Link>
-                    <Link>Borrowed Books</Link>
+                    <NavLink to='/'>Home</NavLink>
+                    <NavLink to='/all-books'>All Books</NavLink>
+                    <NavLink to='/add-books'>Add Books</NavLink>
+                    <NavLink to='borrowed-books'>Borrowed Books</NavLink>
                     <Link className="bg-[#36ad68] text-white px-7 py-2 rounded-md">Login</Link>
                     <Link className="bg-[#ce643b] text-white px-7 py-2 rounded-md">Logout</Link>
                 </div>
