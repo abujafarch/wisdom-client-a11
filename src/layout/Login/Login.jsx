@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { BsEye } from "react-icons/bs";
 import { BsEyeSlash } from "react-icons/bs";
@@ -7,13 +7,16 @@ import { TfiLock } from "react-icons/tfi";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import Loader from "../Loader/Loader";
 
 
 const Login = () => {
 
     const [showPassword, setShowPassword] = useState(false)
-    const { loginUser, googleLogin } = useContext(AuthContext)
+    const { loginUser, googleLogin, setLoading, user, loading } = useContext(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location);
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -24,10 +27,11 @@ const Login = () => {
         loginUser(email, password)
             .then(result => {
                 console.log(result);
-                navigate('/')
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 console.log(error);
+
                 if (error.message === 'Firebase: Error (auth/invalid-credential).') {
                     Swal.fire({
                         icon: "error",
@@ -42,6 +46,7 @@ const Login = () => {
                         confirmButtonText: "Try Again"
                     })
                 }
+                setLoading(false)
             })
     }
 
@@ -54,6 +59,14 @@ const Login = () => {
             .catch(error => {
                 console.log(error);
             })
+    }
+
+    if (loading) {
+        return <Loader></Loader>
+    }
+
+    if (user) {
+        return navigate('/')
     }
 
     return (

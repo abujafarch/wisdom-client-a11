@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 const Navbar = () => {
 
-    const { logOut } = useContext(AuthContext)
+    const { logOut, user, loading } = useContext(AuthContext)
     const [menuOpen, setOpenMenu] = useState(false)
     const handleOpenMenu = () => {
         setOpenMenu(true)
@@ -56,16 +56,31 @@ const Navbar = () => {
                     <Link to='/'><h3 className="font-wisdom text-2xl sm:text-4xl font-bold">Wisdom</h3></Link>
                 </div>
 
-                <div className={`flex lg:flex-row flex-col top-0 absolute lg:static lg:bg-none bg-gradient-to-r lg:p-0 py-5 pl-5 pr-10 from-[#ebf6fe] to-[#a1d8fe] lg:items-center font-inter font-semibold gap-5 transition-all ease-in-out duration-500 ${menuOpen ? 'left-0' : '-left-48'}`}>
-                    <button onClick={handleCloseMenu} className="flex lg:hidden justify-end absolute bg-[#00000042] p-2 right-0 top-0 text-xl"><RxCross1></RxCross1></button>
+                {loading && <div className="flex justify-center gap-5">
+                    <div className="skeleton lg:block hidden rounded-md w-28 h-9"></div>
+                    <div className="skeleton lg:block hidden rounded-md w-28 h-9"></div>
+                    <div className="skeleton lg:block hidden rounded-md w-28 h-9"></div>
+                    <div className="skeleton rounded-md w-28 h-9"></div>
+                </div>}
 
-                    <NavLink onClick={handleCloseMenu} to='/'>Home</NavLink>
-                    <NavLink onClick={handleCloseMenu} to='/all-books'>All Books</NavLink>
-                    <NavLink onClick={handleCloseMenu} to='/add-books'>Add Books</NavLink>
-                    <NavLink onClick={handleCloseMenu} to='borrowed-books'>Borrowed Books</NavLink>
-                    <Link onClick={handleCloseMenu} to='/login' className="bg-[#36ad68] text-center text-white px-7 py-2 rounded-md">Login</Link>
-                    <button onClick={handleLogOut} className="bg-[#ce643b] text-white text-center px-7 py-2 rounded-md">Logout</button>
-                </div>
+                {!loading && <div className="flex items-center gap-5">
+                    <div className={`flex lg:flex-row flex-col top-0 absolute lg:static lg:bg-none bg-gradient-to-r lg:p-0 py-5 pl-5 pr-10 from-[#ebf6fe] to-[#a1d8fe] lg:items-center font-inter font-semibold gap-5 transition-all ease-in-out duration-500 ${menuOpen ? 'left-0' : '-left-48'}`}>
+                        <button onClick={handleCloseMenu} className="flex lg:hidden justify-end absolute bg-[#00000042] p-2 right-0 top-0 text-xl"><RxCross1></RxCross1></button>
+
+                        <NavLink onClick={handleCloseMenu} to='/'>Home</NavLink>
+                        {user && <>
+                            <NavLink onClick={handleCloseMenu} to='/all-books'>All Books</NavLink>
+                            <NavLink onClick={handleCloseMenu} to='/add-books'>Add Books</NavLink>
+                            <NavLink onClick={handleCloseMenu} to='borrowed-books'>Borrowed Books</NavLink>
+                            <button data-tip={`${user?.displayName}`} className="tooltip tooltip-bottom"><img className="w-9 h-9 lg:flex hidden object-cover rounded-full border-2 border-[#36ad68]" src={user?.photoURL} /></button>
+                        </>}
+                        {!user && <Link onClick={handleCloseMenu} to='/login' className="bg-[#36ad68] text-center text-white px-7 py-2 rounded-md">Login</Link>}
+                        {user && <button onClick={handleLogOut} className="bg-[#ce643b] text-white text-center px-4 py-2 rounded-md">Logout</button>}
+                    </div>
+                    <div className="flex items-center">
+                        {user && <button data-tip={`${user?.displayName}`} className="tooltip tooltip-bottom"><img className="w-8 h-8 lg:hidden object-cover rounded-full border-2 border-[#36ad68]" src={user?.photoURL} /></button>}
+                    </div>
+                </div>}
             </div>
         </div>
 

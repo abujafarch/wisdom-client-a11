@@ -10,6 +10,7 @@ import BookCategories from "../layout/BookCategory/BookCategories";
 import NotFound from "../layout/NotFound/NotFound";
 import BorrowedBooks from "../layout/BorrowedBooks/BorrowedBooks";
 import BookDetails from "../layout/BookDetails/BookDetails";
+import PrivateRoute from "../layout/PriveteRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -31,27 +32,27 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/add-books',
-                element: <AddBooks></AddBooks>
+                element: <PrivateRoute><AddBooks></AddBooks></PrivateRoute>
             },
             {
                 path: '/update-books',
-                element: <UpdateBooks></UpdateBooks>
+                element: <PrivateRoute><UpdateBooks></UpdateBooks></PrivateRoute>
             },
             {
                 path: '/all-books',
-                element: <AllBooks></AllBooks>
+                element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>
             },
             {
                 path: '/category-books',
-                element: <BookCategories></BookCategories>
+                element: <PrivateRoute><BookCategories></BookCategories></PrivateRoute>
             },
             {
                 path: '/borrowed-books',
-                element: <BorrowedBooks></BorrowedBooks>
+                element: <PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>
             },
             {
                 path: '/book-details',
-                element: <BookDetails></BookDetails>
+                element: <PrivateRoute><BookDetails></BookDetails></PrivateRoute>
             }
         ]
     },
