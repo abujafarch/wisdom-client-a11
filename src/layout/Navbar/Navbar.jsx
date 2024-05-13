@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { RiMenuFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
 
+    const { logOut } = useContext(AuthContext)
     const [menuOpen, setOpenMenu] = useState(false)
     const handleOpenMenu = () => {
         setOpenMenu(true)
     }
 
-    const handleCloseMenu = () =>{
+    const handleCloseMenu = () => {
         setOpenMenu(false)
     }
 
@@ -25,6 +27,18 @@ const Navbar = () => {
     //     const scrollY = window.scrollY
     //     console.log(scrollY);
     // })
+
+    const handleLogOut = (e) => {
+        e.preventDefault()
+        logOut()
+            .then(() => {
+                console.log("Signed Out Successfully");
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        handleCloseMenu()
+    }
 
     return (
         <div className={`fixed w-full transition-all duration-500 ease-in-out ${scrollY > 5 ? 'top-0 bg-gradient-to-r from-[#ebf6fe] to-[#a1d8fe] opacity-100' : 'top-6'} left-1/2 -translate-x-1/2 z-30`}>
@@ -47,7 +61,7 @@ const Navbar = () => {
                     <NavLink onClick={handleCloseMenu} to='/add-books'>Add Books</NavLink>
                     <NavLink onClick={handleCloseMenu} to='borrowed-books'>Borrowed Books</NavLink>
                     <Link onClick={handleCloseMenu} to='/login' className="bg-[#36ad68] text-center text-white px-7 py-2 rounded-md">Login</Link>
-                    <Link onClick={handleCloseMenu} className="bg-[#ce643b] text-white text-center px-7 py-2 rounded-md">Logout</Link>
+                    <button onClick={handleLogOut} className="bg-[#ce643b] text-white text-center px-7 py-2 rounded-md">Logout</button>
                 </div>
             </div>
         </div>
