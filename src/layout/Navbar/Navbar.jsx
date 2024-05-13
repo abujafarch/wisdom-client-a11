@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { RiMenuFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
 
@@ -32,10 +33,12 @@ const Navbar = () => {
         e.preventDefault()
         logOut()
             .then(() => {
-                console.log("Signed Out Successfully");
+                console.log("Logged Out Successfully");
+                toast.success("Logged Out Successfully")
             })
             .catch(error => {
                 console.log(error);
+                toast.error('Something has wrong')
             })
         handleCloseMenu()
     }
