@@ -10,6 +10,7 @@ const BookDetails = () => {
     const { bookName, image, category, author, rating, quantity, content, description } = bookDetails
 
     const [openModal, setOpenModal] = useState(false)
+    const [newQuantity, setNewQuantity] = useState(quantity)
     const handleOpenModal = () => {
         setOpenModal(true)
     }
@@ -22,14 +23,14 @@ const BookDetails = () => {
                     <p className="text-xl font-medium font-inter">Book Name: {bookName}</p>
                     <p className="font-inter text-lg text-[#7e7e7e]">by {author}</p>
                     <p className="font-inter font-medium text-lg ">Category: {category}</p>
-                    <p className="font-inter font-medium text-lg ">Quantity: {quantity}</p>
+                    <p className="font-inter font-medium text-lg ">Quantity: {newQuantity}</p>
                     <div>
                         <Rating
                             initialRating={rating}
                             readonly
                         />
                     </div>
-                    <button onClick={handleOpenModal} className="bg-[#36ad68] px-5 py-2 rounded-sm font-inter text-lg font-medium text-white">Borrow</button>
+                    <button disabled={newQuantity < 0} onClick={handleOpenModal} className="bg-[#36ad68] px-5 py-2 rounded-sm font-inter text-lg font-medium text-white">Borrow</button>
                     <p className="font-inter"><span className="font-semibold">Summary:</span> {content}</p>
                 </div>
             </div>
@@ -37,7 +38,7 @@ const BookDetails = () => {
                 <p className="font-inter"><span className="font-semibold">Description:</span> {description}</p>
             </div>
             <div className={`${openModal ? 'flex' : 'hidden'}`}>
-                <Modal setOpenModal={setOpenModal}></Modal>
+                <Modal setOpenModal={setOpenModal} bookId={bookDetails._id} setNewQuantity={setNewQuantity} newQuantity={newQuantity}></Modal>
             </div>
         </div>
     );

@@ -9,7 +9,7 @@ const AddBooks = () => {
         const bookName = form.bookName.value
         const image = form.image.value
         const category = form.category.value
-        const quantity = form.quantity.value
+        const quantity = parseInt(form.quantity.value)
         const author = form.author.value
         const rating = parseFloat(form.rating.value)
         // const ratingParse = parseFloat(rating)
