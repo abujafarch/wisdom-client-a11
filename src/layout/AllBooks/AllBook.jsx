@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import CardView from "./CardView";
 import TableView from "./TableView";
 
-const AllBook = ({ view }) => {
+const AllBook = ({ view, book }) => {
     if (view === 'card-view') {
-        return <CardView></CardView>
+        return <CardView book={book}></CardView>
     }
     else {
-        return <TableView></TableView>
+        return <TableView book={book}></TableView>
     }
 };
 

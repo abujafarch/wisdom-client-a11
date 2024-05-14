@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
-        errorElement:<NotFound></NotFound>,
+        errorElement: <NotFound></NotFound>,
         children: [
             {
                 path: '/',
@@ -35,24 +35,28 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><AddBooks></AddBooks></PrivateRoute>
             },
             {
-                path: '/update-books',
-                element: <PrivateRoute><UpdateBooks></UpdateBooks></PrivateRoute>
+                path: '/update-books/:id',
+                element: <PrivateRoute><UpdateBooks></UpdateBooks></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/update-books/${params.id}`)
             },
             {
                 path: '/all-books',
-                element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>
+                element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
+                loader: () => fetch('http://localhost:5000/all-books')
             },
             {
-                path: '/category-books',
-                element: <PrivateRoute><BookCategories></BookCategories></PrivateRoute>
+                path: '/books-category/:category',
+                element: <PrivateRoute><BookCategories></BookCategories></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/books-category/${params.category}`)
             },
             {
                 path: '/borrowed-books',
                 element: <PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>
             },
             {
-                path: '/book-details',
-                element: <PrivateRoute><BookDetails></BookDetails></PrivateRoute>
+                path: '/book-details/:id',
+                element: <PrivateRoute><BookDetails></BookDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/book-details/${params.id}`)
             }
         ]
     },

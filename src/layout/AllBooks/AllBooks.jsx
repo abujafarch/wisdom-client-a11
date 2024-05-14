@@ -1,18 +1,19 @@
 import { useState } from "react";
 import AllBook from "./AllBook";
+import { useLoaderData } from "react-router-dom";
 
 const AllBooks = () => {
     const [view, setView] = useState('card-view')
     const [availableBooks, setAvailableBooks] = useState('all-books')
+    const allBooks = useLoaderData()
+    // console.log(allBooks);
 
     const handleView = (e) => {
         setView(e.target.value);
     }
-    const handleAvailableBooks = (e) =>{
+    const handleAvailableBooks = (e) => {
         setAvailableBooks(e.target.value)
     }
-    // console.log(availableBooks);
-    // console.log(view);
 
     return (
         <div className="max-w-[1480px] mx-auto mt-40">
@@ -30,10 +31,10 @@ const AllBooks = () => {
 
             <div className={`${view === 'card-view' ? 'grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7 lg:gap-10' : 'flex flex-col'} font-inter mt-5 md:px-5 px-3 py-5`}>
 
-                <AllBook view={view}></AllBook>
-                <AllBook view={view}></AllBook>
-                <AllBook view={view}></AllBook>
-                <AllBook view={view}></AllBook>
+                {
+                    allBooks.map(book => <AllBook key={book._id} view={view} book={book}></AllBook>)
+                }
+
             </div>
         </div>
     );

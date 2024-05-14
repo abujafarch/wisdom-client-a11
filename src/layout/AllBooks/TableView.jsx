@@ -1,7 +1,8 @@
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
-const TableView = () => {
+const TableView = ({book}) => {
+    const { bookName, image, category, author, rating } = book
     return (
         <div>
             <div className="overflow-x-auto">
@@ -12,16 +13,17 @@ const TableView = () => {
                             <td className="px-0">
                                 <div className="flex sm:items-center flex-col sm:flex-row gap-3">
                                     <div className="avatar">
-                                        <div className="mask rounded-sm w-16 h-16">
-                                            <img src="https://i.ibb.co/J3kYq01/https-bucketeer-e05bbc84-baa3-437e-9518-adb32be77984-s3-amazonaws-com-public-images-e78bf586-4ce5-47.jpg" />
+                                        <div className="mask rounded-sm w-24 h-24">
+                                            <img src={image} />
                                         </div>
                                     </div>
                                     <div className="">
-                                        <div className="font-bold">Dune by Frank Herbert</div>
-                                        <div className="text-sm opacity-50">by Frank Herbert</div>
+                                        <div className="font-bold">{bookName}</div>
+                                        <div className="text-sm opacity-50">by {author}</div>
+                                        <div className="text-sm opacity-50">{category}</div>
                                         <div>
                                             <Rating
-                                                initialRating={3.7}
+                                                initialRating={rating}
                                                 readonly
                                             />
                                         </div>
