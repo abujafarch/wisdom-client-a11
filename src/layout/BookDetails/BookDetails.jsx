@@ -30,7 +30,7 @@ const BookDetails = () => {
                             readonly
                         />
                     </div>
-                    <button disabled={newQuantity < 0} onClick={handleOpenModal} className={`${newQuantity < 0 ? 'bg-[#84978c]' : 'bg-[#36ad68]'} px-5 py-2 rounded-sm font-inter text-lg font-medium text-white`}>Borrow</button>
+                    <button disabled={newQuantity === 0} onClick={handleOpenModal} className={`${newQuantity === 0 ? 'bg-[#84978c]' : 'bg-[#36ad68]'} px-5 py-2 rounded-sm font-inter text-lg font-medium text-white`}>Borrow</button>
                     <p className="font-inter"><span className="font-semibold">Summary:</span> {content}</p>
                 </div>
             </div>

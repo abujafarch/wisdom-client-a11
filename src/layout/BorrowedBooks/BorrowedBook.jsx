@@ -2,7 +2,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 
-const BorrowedBook = ({ borrowedBook }) => {
+const BorrowedBook = ({ borrowedBook, borrowedBooks, setBorrowedBooks }) => {
 
     const { borrowedPersonEmail, returnDate, borrowedDate, borrowedBookId, bookName, image, author, quantity, _id } = borrowedBook
 
@@ -19,6 +19,11 @@ const BorrowedBook = ({ borrowedBook }) => {
                     axios.put(`http://localhost:5000/all-books/${borrowedBookId}`, { return: 'return' })
                         .then(res => {
                             console.log(res.data);
+                            if (res.data.modifiedCount > 0) {
+                                console.log('updated from return');
+                                const newBorrowedBooks = borrowedBooks.filter(book => book._id !== _id)
+                                setBorrowedBooks(newBorrowedBooks)
+                            }
                         })
                 }
             })

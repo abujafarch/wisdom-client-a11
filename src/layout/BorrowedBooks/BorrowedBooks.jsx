@@ -22,7 +22,7 @@ const BorrowedBooks = () => {
             <div className={`grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7 lg:gap-10 font-inter mt-5 md:px-5 px-3 py-5`}>
 
                 {
-                    borrowedBooks.map(borrowedBook => <BorrowedBook key={borrowedBook._id} borrowedBook={borrowedBook}></BorrowedBook>)
+                    borrowedBooks.map(borrowedBook => <BorrowedBook key={borrowedBook._id} borrowedBook={borrowedBook} setBorrowedBooks={setBorrowedBooks} borrowedBooks={borrowedBooks}></BorrowedBook>)
                 }
                 {/* <BorrowedBook></BorrowedBook>
                 <BorrowedBook></BorrowedBook>
