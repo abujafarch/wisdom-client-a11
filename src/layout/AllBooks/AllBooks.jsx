@@ -1,12 +1,25 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AllBook from "./AllBook";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const AllBooks = () => {
+    const { user } = useContext(AuthContext)
     const [view, setView] = useState('card-view')
-    const allBooks = useLoaderData()
-    const [availableBooks, setAvailableBooks] = useState(allBooks)
+    // const allBooks = useLoaderData()
+    const [availableBooks, setAvailableBooks] = useState([])
+    const [allBooks, setAllBooks] = useState([])
     // console.log(allBooks);
+
+    useEffect(() => {
+        fetch(`https://wisdom-server.vercel.app/all-books?email=${user?.email}`, { credentials: 'include' })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setAvailableBooks(data)
+                setAllBooks(data)
+            })
+    }, [])
 
     const handleView = (e) => {
         setView(e.target.value);
@@ -19,7 +32,7 @@ const AllBooks = () => {
             const newAvailableBooks = availableBooks.filter(book => book.quantity !== 0)
             setAvailableBooks(newAvailableBooks)
         }
-        else{
+        else {
             setAvailableBooks(allBooks)
         }
     }

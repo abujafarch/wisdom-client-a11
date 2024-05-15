@@ -1,7 +1,11 @@
 import axios from "axios";
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const AddBooks = () => {
+
+    const { user } = useContext(AuthContext)
 
     const handleAddBooks = (e) => {
         e.preventDefault()
@@ -33,7 +37,7 @@ const AddBooks = () => {
 
         const book = { bookName, image, category, quantity, author, rating, description, content }
         console.log(book);
-        axios.post('https://wisdom-server.vercel.app/all-books', book)
+        axios.post(`https://wisdom-server.vercel.app/all-books?email=${user?.email}`, book)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {

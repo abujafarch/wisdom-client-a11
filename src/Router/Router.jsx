@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
             {
                 path: '/all-books',
                 element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
-                loader: () => fetch('https://wisdom-server.vercel.app/all-books')
+                // loader: () => fetch('https://wisdom-server.vercel.app/all-books', { credentials: 'include' })
             },
             {
                 path: '/books-category/:category',
