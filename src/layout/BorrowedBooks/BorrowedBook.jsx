@@ -1,7 +1,29 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
+
 
 const BorrowedBook = ({ borrowedBook }) => {
-    const { returnDate, borrowedDate, borrowedBookId, bookName, image, author, quantity } = borrowedBook
+
+    const { borrowedPersonEmail, returnDate, borrowedDate, borrowedBookId, bookName, image, author, quantity, _id } = borrowedBook
+
+    const handleReturnBook = () => {
+        axios.delete(`http://localhost:5000/borrowed-books?email=${borrowedPersonEmail}&borrowedId=${_id}`)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.deletedCount > 0) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Congrats",
+                        text: "Book returned to library Successfully",
+                    });
+                    axios.put(`http://localhost:5000/all-books/${borrowedBookId}`, { return: 'return' })
+                        .then(res => {
+                            console.log(res.data);
+                        })
+                }
+            })
+    }
+
     return (
         <div className={`w-full`}>
 
@@ -15,7 +37,7 @@ const BorrowedBook = ({ borrowedBook }) => {
                 <p className="text-lg text-[#919191]">by {author}</p>
                 <p className="text-lg text-[#919191]">Borrowed: {borrowedDate}</p>
                 <p className="text-lg text-[#919191]">Return: {returnDate}</p>
-                <Link to='/update-books'><button className="bg-[#36ad68] text-center w-full text-white font-inter font-medium p-2 rounded-sm">Return</button></Link>
+                <button onClick={handleReturnBook} className="bg-[#36ad68] text-center w-full text-white font-inter font-medium p-2 rounded-sm">Return</button>
             </div>
         </div>
     );
