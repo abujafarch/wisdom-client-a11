@@ -5,10 +5,11 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-const Modal = ({ setOpenModal, bookId, newQuantity, setNewQuantity }) => {
+const Modal = ({ setOpenModal, book, newQuantity, setNewQuantity }) => {
 
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
+    const { bookName, image, category, author, rating, quantity, content, description, _id } = book
     // console.log(startDate);
     // console.log(newQuantity);
 
@@ -18,8 +19,9 @@ const Modal = ({ setOpenModal, bookId, newQuantity, setNewQuantity }) => {
         const borrowedPersonName = form.name.value
         const borrowedPersonEmail = form.email.value
         const returnDate = startDate.toLocaleDateString()
-        const borrowedBookId = bookId
-        const borrowedPerson = { borrowedPersonName, borrowedPersonEmail, returnDate, borrowedBookId }
+        const borrowedDate = new Date().toLocaleDateString()
+        const borrowedBookId = _id
+        const borrowedBook = { borrowedPersonName, borrowedPersonEmail, returnDate, borrowedDate, borrowedBookId, bookName, image, category, author, rating, quantity, content, description }
 
         // setOpenModal(false)
         if (startDate < new Date()) {
@@ -30,11 +32,11 @@ const Modal = ({ setOpenModal, bookId, newQuantity, setNewQuantity }) => {
             });
         }
         console.log(borrowedPersonName, borrowedPersonEmail, returnDate, borrowedBookId);
-        axios.post('http://localhost:5000/borrow-book', borrowedPerson)
+        axios.post('http://localhost:5000/borrow-book', borrowedBook)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
-                    axios.put(`http://localhost:5000/all-books/${bookId}`)
+                    axios.put(`http://localhost:5000/all-books/${_id}`)
                         .then(res => {
                             if (res.data.modifiedCount > 0) {
                                 setNewQuantity(newQuantity - 1)
