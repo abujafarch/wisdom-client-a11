@@ -1,14 +1,16 @@
 import { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { RiMenuFill } from "react-icons/ri";
 import { RxCross1 } from "react-icons/rx";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import Theme from "../Home/Theme";
 
 const Navbar = () => {
 
     const { logOut, user, loading } = useContext(AuthContext)
     const [menuOpen, setOpenMenu] = useState(false)
+    const location = useLocation()
     const handleOpenMenu = () => {
         setOpenMenu(true)
     }
@@ -46,7 +48,7 @@ const Navbar = () => {
     return (
         <div className={`fixed w-full transition-all duration-500 ease-in-out ${scrollY > 5 ? 'top-0 bg-gradient-to-r from-[#ebf6fe] to-[#a1d8fe] opacity-100' : 'top-6'} left-1/2 -translate-x-1/2 z-30`}>
 
-            <div className={`flex ${scrollY > 5 ? 'top-0 bg-transparent' : 'bg-gradient-to-r from-[#ebf6fe] to-[#a1d8fe]'} rounded-md sm:rounded-[50px] mx-1 sm:mx-auto items-center gap-3 sm:gap-5 max-w-[1200px] lg:justify-between sm:px-14 px-2 py-3 sm:py-5`}>
+            <div className={`flex ${scrollY > 5 ? 'top-0 bg-transparent' : 'bg-gradient-to-r from-[#ebf6fe] to-[#a1d8fe]'} rounded-md sm:rounded-[50px] mx-1 sm:mx-auto items-center gap-3 sm:gap-5 max-w-[1200px] justify-between sm:px-14 px-2 py-3 sm:py-5`}>
 
                 <div onClick={handleOpenMenu} className="flex items-center lg:hidden justify-center">
                     <button className="text-2xl font-bold"><RiMenuFill></RiMenuFill></button>
@@ -77,8 +79,13 @@ const Navbar = () => {
                         {!user && <Link onClick={handleCloseMenu} to='/login' className="bg-[#36ad68] text-center text-white px-7 py-2 rounded-md">Login</Link>}
                         {user && <button onClick={handleLogOut} className="bg-[#ce643b] text-white text-center px-4 py-2 rounded-md">Logout</button>}
                     </div>
-                    <div className="flex items-center">
-                        {user && <button data-tip={`${user?.displayName}`} className="tooltip tooltip-bottom"><img className="w-8 h-8 lg:hidden object-cover rounded-full border-2 border-[#36ad68]" src={user?.photoURL} /></button>}
+                    <div className="flex gap-4 items-center">
+                        {user &&
+                            <button data-tip={`${user?.displayName}`} className="tooltip tooltip-bottom"><img className="w-8 h-8 lg:hidden object-cover rounded-full border-2 border-[#36ad68]" src={user?.photoURL} /></button>
+                        }
+                        {
+                            location.pathname === '/' ? <Theme></Theme> : ''
+                        }
                     </div>
                 </div>}
             </div>

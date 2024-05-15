@@ -1,9 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Footer = () => {
+    const { theme } = useContext(AuthContext)
+    const location = useLocation()
     //data-theme={`${pathname === '/' && !themeChange ? 'dark' : 'light'}`}
     return (
-        <div className={` pt-16 pb-8`}>
+        <div data-theme={`${location.pathname === '/' && theme ? 'dark' : 'light'}`} className={` pt-16 pb-8`}>
             <footer className="footer p-10 text-base-content">
                 <aside>
                     <div >
