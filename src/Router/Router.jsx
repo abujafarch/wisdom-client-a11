@@ -41,12 +41,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/all-books',
-                element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
-                // loader: () => fetch('https://wisdom-server.vercel.app/all-books', { credentials: 'include' })
+                element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>
             },
             {
                 path: '/books-category/:category',
-                element: <PrivateRoute><BookCategories></BookCategories></PrivateRoute>,
+                element: <BookCategories></BookCategories>,
                 loader: ({ params }) => fetch(`https://wisdom-server.vercel.app/books-category/${params.category}`)
             },
             {
