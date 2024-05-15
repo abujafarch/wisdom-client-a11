@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 const BorrowedBook = ({ borrowedBook, borrowedBooks, setBorrowedBooks }) => {
 
-    const { borrowedPersonEmail, returnDate, borrowedDate, borrowedBookId, bookName, image, author, quantity, _id } = borrowedBook
+    const { borrowedPersonEmail, returnDate, borrowedDate, borrowedBookId, bookName, image, author, category, _id } = borrowedBook
 
     const handleReturnBook = () => {
         axios.delete(`http://localhost:5000/borrowed-books?email=${borrowedPersonEmail}&borrowedId=${_id}`)
@@ -20,7 +20,6 @@ const BorrowedBook = ({ borrowedBook, borrowedBooks, setBorrowedBooks }) => {
                         .then(res => {
                             console.log(res.data);
                             if (res.data.modifiedCount > 0) {
-                                console.log('updated from return');
                                 const newBorrowedBooks = borrowedBooks.filter(book => book._id !== _id)
                                 setBorrowedBooks(newBorrowedBooks)
                             }
@@ -34,7 +33,7 @@ const BorrowedBook = ({ borrowedBook, borrowedBooks, setBorrowedBooks }) => {
 
             <div className="w-full relative">
                 <img className={`w-full h-[500px] object-cover`} src={image} />
-                <p className={`absolute bg-[#5353533d] px-3 py-2 text-white font-medium rounded-r-md text-sm font-inter bottom-5`}>Fiction</p>
+                <p className={`absolute bg-[#5353533d] px-3 py-2 text-white font-medium rounded-r-md text-sm font-inter bottom-5`}>{category}</p>
             </div>
             <div className={`px-2 font-inter pb-2`}>
 

@@ -50,6 +50,13 @@ const Modal = ({ setOpenModal, book, newQuantity, setNewQuantity }) => {
                         text: "Book Borrowed to your borrowed list",
                     });
                 }
+                else if (res.data.bookAlreadyHas) {
+                    Swal.fire({
+                        icon: "info",
+                        title: "Attention",
+                        text: "You Already added this book to your borrowed list",
+                    });
+                }
             })
 
     }
