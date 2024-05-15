@@ -37,7 +37,7 @@ const AddBooks = () => {
 
         const book = { bookName, image, category, quantity, author, rating, description, content }
         console.log(book);
-        axios.post(`https://wisdom-server.vercel.app/all-books?email=${user?.email}`, book)
+        axios.post(`https://wisdom-server.vercel.app/all-books?email=${user?.email}`, book, { withCredentials: true })
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
