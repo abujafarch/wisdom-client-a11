@@ -32,11 +32,11 @@ const Modal = ({ setOpenModal, book, newQuantity, setNewQuantity }) => {
             });
         }
         console.log(borrowedPersonName, borrowedPersonEmail, returnDate, borrowedBookId);
-        axios.post('http://localhost:5000/borrow-book', borrowedBook)
+        axios.post('https://wisdom-server.vercel.app/borrow-book', borrowedBook)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
-                    axios.put(`http://localhost:5000/all-books/${_id}`)
+                    axios.put(`https://wisdom-server.vercel.app/all-books/${_id}`)
                         .then(res => {
                             if (res.data.modifiedCount > 0) {
                                 setNewQuantity(newQuantity - 1)

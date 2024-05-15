@@ -24,10 +24,16 @@ const AddBooks = () => {
         if (rating > 5) {
             return Swal.fire("You can not input more than 5 for rating");
         }
+        if (rating <= 0) {
+            return Swal.fire("You can not input less than 1 for rating");
+        }
+        if (quantity <= 0) {
+            return Swal.fire("You can not input less than 1 for quantity");
+        }
 
         const book = { bookName, image, category, quantity, author, rating, description, content }
         console.log(book);
-        axios.post('http://localhost:5000/all-books', book)
+        axios.post('https://wisdom-server.vercel.app/all-books', book)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {

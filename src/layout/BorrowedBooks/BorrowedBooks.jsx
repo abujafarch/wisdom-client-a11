@@ -8,7 +8,7 @@ const BorrowedBooks = () => {
     const [borrowedBooks, setBorrowedBooks] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/borrowed-books?email=${user?.email}`)
+        fetch(`https://wisdom-server.vercel.app/borrowed-books?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);

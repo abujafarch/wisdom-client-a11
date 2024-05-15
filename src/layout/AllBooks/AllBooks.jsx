@@ -4,15 +4,24 @@ import { useLoaderData } from "react-router-dom";
 
 const AllBooks = () => {
     const [view, setView] = useState('card-view')
-    const [availableBooks, setAvailableBooks] = useState('all-books')
     const allBooks = useLoaderData()
+    const [availableBooks, setAvailableBooks] = useState(allBooks)
     // console.log(allBooks);
 
     const handleView = (e) => {
         setView(e.target.value);
     }
     const handleAvailableBooks = (e) => {
-        setAvailableBooks(e.target.value)
+        e.preventDefault()
+        console.log(e.target.value)
+        const value = e.target.value
+        if (value === 'available-books') {
+            const newAvailableBooks = availableBooks.filter(book => book.quantity !== 0)
+            setAvailableBooks(newAvailableBooks)
+        }
+        else{
+            setAvailableBooks(allBooks)
+        }
     }
 
     return (
@@ -32,7 +41,7 @@ const AllBooks = () => {
             <div className={`${view === 'card-view' ? 'grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-7 lg:gap-10' : 'flex flex-col'} font-inter mt-5 md:px-5 px-3 py-5`}>
 
                 {
-                    allBooks.map(book => <AllBook key={book._id} view={view} book={book}></AllBook>)
+                    availableBooks.map(book => <AllBook key={book._id} view={view} book={book}></AllBook>)
                 }
 
             </div>

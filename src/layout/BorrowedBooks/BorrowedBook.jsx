@@ -7,7 +7,7 @@ const BorrowedBook = ({ borrowedBook, borrowedBooks, setBorrowedBooks }) => {
     const { borrowedPersonEmail, returnDate, borrowedDate, borrowedBookId, bookName, image, author, category, _id } = borrowedBook
 
     const handleReturnBook = () => {
-        axios.delete(`http://localhost:5000/borrowed-books?email=${borrowedPersonEmail}&borrowedId=${_id}`)
+        axios.delete(`https://wisdom-server.vercel.app/borrowed-books?email=${borrowedPersonEmail}&borrowedId=${_id}`)
             .then(res => {
                 console.log(res.data);
                 if (res.data.deletedCount > 0) {
@@ -16,7 +16,7 @@ const BorrowedBook = ({ borrowedBook, borrowedBooks, setBorrowedBooks }) => {
                         title: "Congrats",
                         text: "Book returned to library Successfully",
                     });
-                    axios.put(`http://localhost:5000/all-books/${borrowedBookId}`, { return: 'return' })
+                    axios.put(`https://wisdom-server.vercel.app/all-books/${borrowedBookId}`, { return: 'return' })
                         .then(res => {
                             console.log(res.data);
                             if (res.data.modifiedCount > 0) {

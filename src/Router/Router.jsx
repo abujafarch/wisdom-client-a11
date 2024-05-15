@@ -37,17 +37,17 @@ export const router = createBrowserRouter([
             {
                 path: '/update-books/:id',
                 element: <PrivateRoute><UpdateBooks></UpdateBooks></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/update-books/${params.id}`)
+                loader: ({ params }) => fetch(`https://wisdom-server.vercel.app/update-books/${params.id}`)
             },
             {
                 path: '/all-books',
                 element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/all-books')
+                loader: () => fetch('https://wisdom-server.vercel.app/all-books')
             },
             {
                 path: '/books-category/:category',
                 element: <PrivateRoute><BookCategories></BookCategories></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/books-category/${params.category}`)
+                loader: ({ params }) => fetch(`https://wisdom-server.vercel.app/books-category/${params.category}`)
             },
             {
                 path: '/borrowed-books',
@@ -56,7 +56,7 @@ export const router = createBrowserRouter([
             {
                 path: '/book-details/:id',
                 element: <PrivateRoute><BookDetails></BookDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/book-details/${params.id}`)
+                loader: ({ params }) => fetch(`https://wisdom-server.vercel.app/book-details/${params.id}`)
             }
         ]
     },

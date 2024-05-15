@@ -26,7 +26,7 @@ const UpdateBooks = () => {
         const updatedBook = { bookName, image, category, author, rating }
         console.log(updatedBook);
 
-        axios.put(`http://localhost:5000/update-books/${_id}`, updatedBook)
+        axios.put(`https://wisdom-server.vercel.app/update-books/${_id}`, updatedBook)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0) {
