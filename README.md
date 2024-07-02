@@ -1,11 +1,27 @@
-# Wisdom
-### Assignment_category_0008
-#### Live Link: https://wisdom-cca7e.web.app/
+# Wisdom - manage your school library 
 
-- Student can borrow book from wisdom library and their borrowing data will be stored in wisdom website
-- After read a book they can return this via wisdom website
-- If any book is not available they can see it in wisdom website that can help they not to go library physically.
-- Wisdom library's book management person can update any book information
-- Student can see book category wise in wisdom website
-- Student can get inspiration to read book from wisdom website
-- Library management can feature top readers in wisdom website to make competition between students to read books.
+## Overview
+This is a school library management website. Where you can manage all the details like who has taken out how many books from the school library and who has returned when.
+
+#### Live URL: https://wisdom-cca7e.web.app
+
+## The technology used
+- HTML
+- CSS 
+- Javascript
+- React
+- Firebase
+- Express JS
+- MongoDB
+
+
+### Key Features
+- Here students can see the list and rating of all the books and can borrow the books
+- School library authorities can add and update new books here
+- Here are some famous quotes to inspire students to read books and a list of three top readers to inspire others to compete.
+
+### If you want to run the project locally
+- Clone client side and server side repo
+- Set your own github url if you want
+- Set your firebase authentication details in client side repo and also set the MongoDB details in server side repo 
+- Finally you can modify as your wish. 
