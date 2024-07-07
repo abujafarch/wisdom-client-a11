@@ -3,7 +3,9 @@
 ## Overview
 This website serves as a comprehensive management tool for the school library, facilitating students to book loans and returns through this system. This digital platform streamlines the process of managing library resources, ensuring accurate records, and reducing administrative workload.
 
-#### Live URL: https://wisdom-cca7e.web.app
+#### Live URL: [Wisdom](https://wisdom-cca7e.web.app)
+
+#### [Server Side Repository](https://github.com/abujafarch/wisdom-server-a11)
 
 ## The technology used
 - HTML
