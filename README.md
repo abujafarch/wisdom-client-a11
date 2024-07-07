@@ -1,13 +1,14 @@
 # Wisdom - manage your school library 
 
 ## Overview
-This is a school library management website. Where you can manage all the details like who has taken out how many books from the school library and who has returned when.
+This website serves as a comprehensive management tool for the school library, facilitating students to book loans and returns through this system. This digital platform streamlines the process of managing library resources, ensuring accurate records, and reducing administrative workload.
 
 #### Live URL: https://wisdom-cca7e.web.app
 
 ## The technology used
 - HTML
-- CSS 
+- CSS
+- Tailwind
 - Javascript
 - React
 - Firebase
@@ -16,12 +17,12 @@ This is a school library management website. Where you can manage all the detail
 
 
 ### Key Features
-- Here students can see the list and rating of all the books and can borrow the books
-- School library authorities can add and update new books here
-- Here are some famous quotes to inspire students to read books and a list of three top readers to inspire others to compete.
+- Students can easily browse the library catalog, check availability, and borrow books online. The system facilitates seamless borrowing processes, including automated reminders for due dates and renewal options, enhancing convenience for users.
+- Here is a feature where the top 3 readers are featured so that others get interested in reading the book and here are some famous quotes to inspire students to read books
+- School library authorities can add and update new books. and Students can update their return status immediately upon the return of books.
 
 ### If you want to run the project locally
 - Clone client side and server side repo
-- Set your own github url if you want
-- Set your firebase authentication details in client side repo and also set the MongoDB details in server side repo 
-- Finally you can modify as your wish. 
+- Set your own GitHub url if you want
+- Set your Firebase authentication details in client side repo and also set the MongoDB details in server side repo 
+- Finally, you can modify it as you wish. 
